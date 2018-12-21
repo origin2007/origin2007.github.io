@@ -1,0 +1,56 @@
+---
+layout: post
+title: "网络书签"
+date: 2016-05-04
+author: Xiaoming
+category: Gossip
+tags: Tools UML Markdown ML CV Software-Engineering 
+finished: false
+---
+
+## 网络书签
+
+### 原型系统设计
+
+> - [easyicon](http://www.easyicon.net) 图标大全，可以用来制作原型系统的时候选则图标，格式全。
+
+### UML
+
+> - [ProcessOn](https://www.processon.com/#) 基于浏览器的做图软件，不止能画UML，还可以做其他的图，界面等.
+> - [astah](http://astah.net/editions/community) astah community is a powerful UML tools.
+
+### Markdown
+
+> - [简书](http://www.jianshu.com/) 在线Markdown写作网站，符合审美风格要求比较高的童鞋，文科生。
+> - [作业部落](http://www.zybuluo.com) 另一个在线写Markdown的网站，支持公式，流程图等，适合理科生。
+> - [小书匠Markdown编辑器](http://xiaoshujiang.com/) 也是一个在线写作网站，支持复杂的Markdown语法，可以点[这里](http://markdown.xiaoshujiang.com)直接进行写作，可以绑定印象笔记等，可以导出PDF，免费。
+> - [Kramdown Syntax](kramdown.gettalong.org/syntax.html) 这个是jekyll用的一个markdowm render的语法说明。
+
+### Cloud Storage
+
+> - [坚果云](https://www.jianguoyun.com) 坚果云是目前支持所有平台的网络存储服务商了，快盘已经挂了。在Linux下还可以使用百度网盘，但是没有同步功能。
+> - [七牛存储](https://portal.qiniu.com) 七牛云存储，应该是比较可靠的那种云服务提供商吧，而且普通用用基本免费的。
+
+### Personal Homepage / Good Website
+
+> - [Steve Losh](http://stevelosh.com/) 
+> - [Typora](http://www.typora.io/) Typora是一个实时显示效果的markdown编辑/阅读软件，有windows和mac版本。但是我不大喜欢这种编辑方式，所以也没有用，不过它网站做的不错，可以借鉴一下。
+> - [编程类中文开源电子书合集](https://openingsource.org/1137/)  刊载免费编程类中文开源电子书合集全集
+
+### News
+
+> - [CNN](http://edition.cnn.com) Breaking news from CNN.
+> - [Yahoo](http://www.yahoo.com) 怀念一下吧。
+
+### Programming
+
+> - [JavaFX 8 教程（中文）](http://code.makery.ch/library/javafx-8-tutorial/zh-cn/) JavaFX8教程，实践入手，非常详细。
+
+### MindMap
+
+> - [XMind](https://www.xmind.cn/)  XMind can be used as a mind map tool. Not free.
+> - [Freemind](http://freemind.sourceforge.net/wiki/index.php/Download) powerful mind mapping tool, free and open source. UI is not as attractive as XMind.
+
+### Entertaiment
+
+> - [Kodi](https://kodi.tv/) 将任何设备变成一台家庭影院的软件，支持树莓派，安卓，Windows，Linux和iOS。

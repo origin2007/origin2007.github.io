@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Dropbear安装使用"
+subtitle: "Dropbear是一个简单的SSH Server"
+date: 2018-05-27
+author: Xiaoming
+category: Skill
+tags: ssh dropbear 
+finished: true
+---
+
+## dropbear的使用
+
+Dropbear是Linux上一个轻量级的SSH服务器，据说比SSHD使用更少的内存。
+
+## 安装
+
+安装按照标准的方法安装，在很多系统里都可以直接安装，不能直接安装还可以下载源码编译安装。
+
+## 配置
+
+运行`dropbear -h`看看秘钥的存储路径。
+
+然后，运行dropbearkey产生所需要的秘钥。例如：
+
+`dropbearkey -t rsa -s 4096 -f /etc/dropbear/dropbear_rsa_host_key`
+`dropbearkey -t dss -f /etc/dropbear/dropbear_dss_host_key`
+
+没有错误就OK了。
+
+## 运行
+
+直接执行dropbear或者使用命令行参数指定需要绑定的IP地址和端口。
+

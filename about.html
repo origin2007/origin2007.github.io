@@ -1,0 +1,41 @@
+---
+layout: page
+title: 关于 | About
+subtitle: 不想当大学教授的工程师不是一个好程序员
+permalink: /about/
+---
+
+<h2>关于本博/About this Blog</h2>
+<p>主要用来记录自己在科学研究和生活工作中的一些无聊和有聊的想法，事情和结果。</p>
+<p>A place to write down some interesting or boring ideas, things or discoveries.</p>
+	<p><ul class="about-list">
+		<li><i class="fa fa-rss"></i><a href="{{ site.url }}{{ site.baseurl }}/feed.xml"> Rss</a></li>
+		<li><i class="fa fa-modx"></i> Total <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-pulse"></i></span> Hits and <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-pulse"></i></span> Visitors</li>
+	</ul></p>
+
+<h2>我/About me</h2>
+<p>网名小穷博士，真名李晓明。 新浪微博网址：http://weibo.com/ieee2000/。工作于浙江理工大学，职业为教师。主要从事软件工程，计算机视觉和机器人相关的一些研究工作。研究水平低劣，能力较差，还请网友海涵。</p>
+<p>I am currently an associate professor in Zhejiang Sci-Tech University, researching on the topics including the software engineering, robotics and computer vision. My research dream is to make people's life better by making smart machines. </p>
+    <p><ul class="about-list">
+		<li>
+			<i class="fa fa-twitter"></i><a href="https://weibo.com/{{ site.twitter_username }}"> Weibo</a>
+		</li>
+		<li>
+			<i class="fa fa-github"></i><a href="https://github.com/{{ site.github_username }}"> Github</a>
+		</li>
+		<li>
+			<i class="fa fa-envelope"></i><a href="mailto:{{ site.email }}?subject=Hello&nbsp;{{ site.name }}"> Email</a>
+		</li>
+	</ul></p>
+
+<h2>其它网址/Other websites</h2>
+<p>
+	<ul class="about-list">
+		<li>
+			<i class="fa fa-link"></i><a href="http://www.paraoffice.net">机电系统软件工程实验室(筹) / Mechatronic System Software Engineering Labortory()</a>
+		</li>
+	</ul>
+</p>
+	{% if site.skillstree %}
+	{% include skillstree.html %}
+	{% endif %}

@@ -1,0 +1,32 @@
+---
+layout: post
+title: "利用现有SSH登录传输文件的方法ZModem"
+subtitle: "zssh的使用"
+date: 2018-12-21
+author: Xiaoming
+category: Skill
+tags: ubuntu zmodem
+finished: true
+---
+
+## 安装必备的软件
+
+首先要在两个主机上都要安装好对应的软件，在主机上要安装好zssh，在远程计算机上要安装好lrzsz。前者可以让你在主机上运行一个支持zmodem的终端，后者则可以让远程计算机支持zmodem协议和两个重要的命令sz和rz。
+
+对于Ubuntu而言，安装比较简单，用传统的apt方式安装即可。如果主机不支持SSH还得安装OpenSSH。
+
+## 使用方法
+
+首先在主机上运行zssh，使用方法同ssh命令：
+
+> zssh user@host.com -p 1234
+
+然后输入密码，确保登录成功。之后，就可以利用sz和rz传输文件了，比sftp要方便，因为有些时候你要登录的主机不一定能直接连上，需要中间做几次跳转。
+
+>> 上传文件：首先按ctrl-2进入命令模式，然后运行 `sz localfile` 完成传输。
+>>
+>> 下载文件：首先输入`sz remotefile`，然后按ctrl-2进入命令模式，再输入`rz`完成传输。
+
+发送和接收文件对于本机而言都是当前目录，即执行zssh时所在目录。
+
+

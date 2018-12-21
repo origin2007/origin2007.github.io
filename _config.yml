@@ -1,0 +1,23 @@
+# Site settings
+title: 李晓明的主页（Homepage of Xiaoming）
+name: Xiaoming # your name
+email: origin@foxmail.com # your email address
+description: >
+    A personal website with a blog  # this means to ignore newlines until "baseurl:"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://origin2007.github.io" # the base hostname & protocol for your site
+twitter_username: ieee2000 # your Twitter username
+github_username: origin2007 # your Github username
+disqus_username: xiaoming # your disqus username
+
+#google-analytics: UA-75034651-1 # add it if you have one
+
+skillstree: true # turn on or off the skills tree in about page
+
+# Build settings
+permalink: none
+markdown: kramdown
+kramdown: 
+  input: GFM
+  auto_ids: true
+  auto_id_prefix: 'id-'

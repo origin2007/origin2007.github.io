@@ -1,0 +1,19 @@
+---
+layout: post
+title: 使用Plink联接ssh代理
+author: Xiaoming
+category: Skill
+tags: linux ssh proxy
+date: 2016-08-22
+finished: true
+---
+
+首先去安装plink:
+
+`sudo apt-get install putty-tools`
+
+然后执行命令：
+
+`plink -N -v username@hostip -D 127.0.0.1:7070 -pw password`
+
+和ssh命令比，优点是可以把密码放到命令里，方便交互。

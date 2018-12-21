@@ -1,0 +1,115 @@
+---
+layout: post
+title: "简单Ant使用手册"
+author: Xiaoming
+Date: 2016-05-13
+category: Research
+tags: Ant Java Software-Engineering
+finished: false
+---
+
+
+## Ant基础知识
+
+这里的Ant是Java的Ant，是Apache出品的Ant。是一个自动化构建工具。如果你用过Linux系统里的make的话，这两者是差不多的，区别是make是用来处理C/C++/Fortran等编程项目的，而Ant是给Java项目准备的。
+
+说实话我觉得Ant比make要简单，原因是在于Ant使用的是XML格式的build.xml，而Make用的是Makefile。当然本质上还是Java要简单一些。
+
+Ant的安装很简单，主要是注意环境变量的配置`ANT_HOME`,`JAVA_HOME`, `CLASSPATH`等。Ant的执行只需要在命令行敲入`ant`就可以了。
+
+Ant运行的时候就会在当前目录下寻找build.xml文件。找不到就会报错，找到了就会按照build.xml文件里描述的执行相应的操作。所以，使用Ant不在于如何运行Ant，而是如何编写build.xml文件。
+
+## 如何编写基本的Build.xml
+
+首先要了解，build.xml (后面称buildfile)是基于项目（Project）的，因此一个项目就会有一个buildfile。所以基本的makefile应当包括一个Project和至少一个target。而一个target又包括一系列的tasks。
+
+    build.xml
+    |-project
+    |-target1
+        |-tasks1
+        |-tasks2
+    |-target2
+        |-task3
+        |-task4
+
+Project, target和tasks都有自己的属性和内置标签。具体属性的名称等信息可以去[Apache网站](http://ant.apache.org/manual/index.html)上查找。
+
+学习如何写一个buildfile的方法就是拷贝一个例子自己修改并应用在项目中。下面这个例子就是从Apache的网站上拷贝来的。
+
+~~~ ant
+<project name="MyProject" default="dist" basedir=".">
+  <description>
+    simple example build file
+  </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist" location="dist"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source">
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution">
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/lib"/>
+
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/lib/MyProject-${DSTAMP}.jar" basedir="${build}"/>
+  </target>
+
+  <target name="clean"
+        description="clean up">
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>
+
+~~~
+
+让我剖析一下这个buildfile，首先最外面的标签是project，包含了4个target标签以及若干个属性标签。description标签是用来描述一下项目信息的；property标签是用来定义一些属性变量的。例如`src`，在buildfile中可以用`${src}`的方法来使用这些变量的值。
+
+再看看target标签：target标签的name属性和description属性是用来描述这个target的信息的；depends标签是用来表示依赖的（是的，任何target之间都可能存在依赖）。然后里面都是任务标签。这里用到了很多的内置任务标签，例如`mkdir`, `delete`, `javac`, `jar`, `tstamp`等。也可以自己定义task。
+
+target的依赖比较费解。这其实也是此类自动构建工具的迷人之处。target翻译过来就是目标，可以理解为为了实现某个目标，就必须要先完成其他的一些依赖目标才行。例如要想打包应用程序，就必须要编译应用程序得到可执行代码，所以`dist`依赖于`compile`。而`compile`又依赖于`init`，因为在编译代码之前，必须要创建一些用于存放生成目标代码的目录。这些依赖关系是Ant自动维护的，也就是说如果现在运行的是`dist`，那么Ant会自己判断是不是需要运行`compile`。要相信Ant，如果你正确的编写了buildfile，Ant能够很好的解决这件事。
+
+所以把这个文件存成build.xml放到你项目的根目录中，然后直接运行`ant`命令。Ant执行默认的target `dist`，然后发现`compile`没有完成，于是跳到`compile`执行compile，然后发现`init`没有执行，于是跳到`init`执行目录创建`mkdir`，之后再回头执行`javac`和`tar`操作。所有操作完成后就在项目的lib目录中生成所需要的jar包。
+
+P.S. 不要敷衍标签里面的description属性，在使用`ant -p`命令时可以查看有despcription属性的target的信息。例如上面这个例子可以看到信息为：
+
+~~~ bsh
+[lxm@cq41 xxx]$ ant -p
+Buildfile: /home/lxm/tmp/xxx/build.xml
+    simple example build file
+Main targets:
+ clean    clean up
+ compile  compile the source
+ dist     generate the distribution
+ 
+Default target: dist
+~~~
+
+现在有了这个基本的buildfile，就可以开始编写Java程序了。很多的中小程序用这个build.xml基本够用了。
+
+## 各种更复杂的buildfile例子
+
+T.B.C.
+
+## 如何编写多人参与的Build.xml
+
+T.B.C.
+
+## 参考
+
+最后有问题，去Apache Ant的主页上查找答案: [http://ant.apache.org/manual/index.html](http://ant.apache.org/manual/index.html)

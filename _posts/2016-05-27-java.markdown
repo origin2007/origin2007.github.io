@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Java使用/开发问题汇编"
+subtitle: "持续更新中……"
+author: Xiaoming
+category: Skill
+tags: Java SoftwareEngineering
+date: 2016-05-27
+finished: false
+
+---
+
+## Java程序使用代理
+
+在命令行中加入参数`-D`。例如:
+
+```
+java -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7070 -jar abc.jar
+```
+
+其他可以使用的参数包括：`http.proxyHost`,`http.proxyPort`, `https.proxyHost`, `ftp.proxyHost`, `gopher.proxyHost`。注意socket代理服务器的写法和其他协议不大一样。
