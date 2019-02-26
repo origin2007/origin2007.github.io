@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Ubuntun中Dia无法输入中文"
+subtitle: ""
+date: 2018-11-27
+author: Xiaoming
+category: Skill
+tags: Ubuntu
+finished: true
+---
+
+## Dia的中文问题
+
+Dia经常被用来画流程图，用久了就觉得还不错，但是比较蛋疼的是其对中文的支持。对于Windows版本或者老的Ubuntu版本来说，据说可以通过切换输入法菜单的方式选择输入法来解决，但是对于Ubuntu18.04来说，它带的Dia根本就没有输入法菜单！解决的方法有两种。第一种是在命令行里输入命令的方式来启动dia：
+
+> env GTK\_IM\_MODULE=xim dia
+
+另外一个是修改Dia的启动菜单，到`/usr/share/applications/dia.desktop`中修改`Exec`那一行，内容同上。
+
