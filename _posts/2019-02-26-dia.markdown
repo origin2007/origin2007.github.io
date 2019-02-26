@@ -2,7 +2,7 @@
 layout: post
 title: "Ubuntun中Dia无法输入中文"
 subtitle: ""
-date: 2018-11-27
+date: 2019-02-26
 author: Xiaoming
 category: Skill
 tags: Ubuntu
