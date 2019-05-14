@@ -1,0 +1,29 @@
+---
+layout: post
+title: "iptables导致云服务器端口不能访问"
+subtitle: "清空iptables"
+date: 2019-5-14
+author: Xiaoming
+category: Skill
+tags: linux
+finished: true
+---
+
+## iptables导致云服务器不能访问的解决办法
+
+因为某次更新，导致云服务器原先可以访问的端口（TCP）都不能访问了。不是虚拟机防火墙配置的问题，因此只能确定是本机防火墙的问题。
+
+首先使用`sudo ufw status` 查看了一下防火墙设置，发现是disbaled，应该和ufw没关系。
+
+然后使用`sudo iptables -L -n` 查看了一下，发现了一堆乱七八糟的规则，也不知道是什么时候加上的。运行以下命令清除。
+
+```
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P OUTPUT ACCEPT
+sudo iptabels -P FORWARD ACCEPT
+sudo iptables -F
+```
+
+但是重启就失效了，只能把它放到/etc/rc.local里，每次启动后清理一下。
+
+问题解决。
