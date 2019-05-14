@@ -3,7 +3,7 @@ title: 李晓明的主页（Homepage of Xiaoming）
 name: Xiaoming # your name
 email: origin@foxmail.com # your email address
 description: >
-    A personal website with a blog  # this means to ignore newlines until "baseurl:"
+    A personal website with a blog
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://origin2007.github.io" # the base hostname & protocol for your site
 twitter_username: ieee2000 # your Twitter username
