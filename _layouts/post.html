@@ -9,12 +9,9 @@ layout: default
 		<div class="post-meta"><i class="fa fa-calendar-o"></i> <time datetime="{{ page.date | date_to_string }}" itemprop="datePublished">{{ page.date | date: "%b %-d %Y" }}</time>
 
 		{% if page.author %}&nbsp;&nbsp;•&nbsp;&nbsp;<i class="fa fa-user-secret"></i> <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span>
-        {% endif %}
-		<br>
-<span id="busuanzi_container_page_pv">
-  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-</span><br>
-		<i class="fa fa-eye"></i> <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span>˚C</span>
+        {% endif %}<br>
+		<i class="fa fa-eye"></i> <span id="busuanzi_container_page_pv">
+  <span id="busuanzi_value_page_pv"></span></span>˚C </span>
 	</div>
 
         {% if page.tags %}
